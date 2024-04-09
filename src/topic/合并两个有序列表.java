@@ -20,9 +20,17 @@ package topic;
 l1 和 l2 均按 非递减顺序 排列
  */
 public class 合并两个有序列表 {
-    public Solution.ListNode mergeTwoLists(Solution.ListNode list1, Solution.ListNode list2) {
-        Solution.ListNode result =  new Solution.ListNode();
-        Solution.ListNode next = result;
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode result =  new ListNode();
+        ListNode next = result;
         if (list1 == null && list2 != null){
             return list2;
         } else if (list1 !=null && list2 == null) {
@@ -47,7 +55,7 @@ public class 合并两个有序列表 {
                 next.next = list1;
                 break;
             }
-            next.next = new Solution.ListNode();
+            next.next = new ListNode();
             next = next.next;
         }
 
